@@ -13,19 +13,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import dev.donmanuel.androidjavaapp.adapter.CommentAdapter;
-import dev.donmanuel.androidjavaapp.api.ApiClient;
-import dev.donmanuel.androidjavaapp.api.ApiService;
+import dev.donmanuel.androidjavaapp.di.ServiceLocator;
 import dev.donmanuel.androidjavaapp.model.Comment;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import dev.donmanuel.androidjavaapp.presenter.PostDetailPresenter;
+import dev.donmanuel.androidjavaapp.repository.ICommentRepository;
 
-public class PostDetailActivity extends AppCompatActivity {
+/**
+ * Activity that displays the details of a post and its comments.
+ * Follows Single Responsibility Principle by focusing only on UI concerns.
+ * Follows Dependency Inversion Principle by depending on abstractions.
+ * Implements PostDetailView interface to follow Liskov Substitution Principle.
+ */
+public class PostDetailActivity extends AppCompatActivity implements PostDetailPresenter.PostDetailView {
 
     private RecyclerView recyclerView;
     private CommentAdapter commentAdapter;
     private TextView postTitle, postBody;
     private static final String TAG = "PostDetailActivity";
+    
+    private PostDetailPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,33 +51,28 @@ public class PostDetailActivity extends AppCompatActivity {
         postBody.setText(postBodyText);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        fetchCommentsForPost(postId);
+        
+        // Get repository from ServiceLocator (dependency injection)
+        ICommentRepository commentRepository = ServiceLocator.getInstance().getCommentRepository();
+        
+        // Create presenter and load comments
+        presenter = new PostDetailPresenter(commentRepository, this);
+        presenter.loadComments(postId);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
 
-    private void fetchCommentsForPost(int postId) {
-        ApiService apiService = ApiClient.getClient().create(ApiService.class);
-        Call<List<Comment>> call = apiService.getComments(postId);
+    @Override
+    public void displayComments(List<Comment> comments) {
+        commentAdapter = new CommentAdapter(comments);
+        recyclerView.setAdapter(commentAdapter);
+    }
 
-        call.enqueue(new Callback<List<Comment>>() {
-            @Override
-            public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<Comment> comments = response.body();
-                    commentAdapter = new CommentAdapter(comments);
-                    recyclerView.setAdapter(commentAdapter);
-                } else {
-                    Log.e(TAG, "Failed to load comments. Response code: " + response.code());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Comment>> call, Throwable t) {
-                Log.e(TAG, "Error fetching comments: " + t.getMessage(), t);
-            }
-        });
+    @Override
+    public void showError(String message) {
+        Log.e(TAG, message);
+        // Could show an error message to the user here
     }
 
     // Manejar el botón de "Atrás" en el AppBar

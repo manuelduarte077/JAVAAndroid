@@ -23,9 +23,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="dev.donmanuel.androidfirebase" />
-                  <option name="mobileSdkAppId" value="1:230651328026:android:db9872491cb99c761143a3" />
-                  <option name="projectId" value="labsapp-161ec" />
-                  <option name="projectNumber" value="230651328026" />
+                  <option name="mobileSdkAppId" value="1:3478773206:android:ce6e7d105aadfae5bc5877" />
+                  <option name="projectId" value="labsapp-64cf5" />
+                  <option name="projectNumber" value="3478773206" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

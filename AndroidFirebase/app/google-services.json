@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "230651328026",
-    "project_id": "labsapp-161ec",
-    "storage_bucket": "labsapp-161ec.firebasestorage.app"
+    "project_number": "3478773206",
+    "project_id": "labsapp-64cf5",
+    "storage_bucket": "labsapp-64cf5.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:230651328026:android:76a210bbb4fe11901143a3",
+        "mobilesdk_app_id": "1:3478773206:android:ce6e7d105aadfae5bc5877",
         "android_client_info": {
-          "package_name": "com.example.tapjackinglogin"
+          "package_name": "dev.donmanuel.androidfirebase"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDBuFyEyepCax2BV-a8Km344AKXcrix9_A"
+          "current_key": "AIzaSyAiMa0Yfuy0fPcibdDmbj34Wp0D0-HM5tI"
         }
       ],
       "services": {
@@ -26,15 +26,15 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:230651328026:android:db9872491cb99c761143a3",
+        "mobilesdk_app_id": "1:3478773206:android:bd1622e25d331b53bc5877",
         "android_client_info": {
-          "package_name": "dev.donmanuel.androidfirebase"
+          "package_name": "dev.donmanuel.firestoreclean"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDBuFyEyepCax2BV-a8Km344AKXcrix9_A"
+          "current_key": "AIzaSyAiMa0Yfuy0fPcibdDmbj34Wp0D0-HM5tI"
         }
       ],
       "services": {
