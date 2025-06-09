@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dev.donmanuel.fakeapi.adapters.ProductAdapter;
@@ -18,6 +19,10 @@ import dev.donmanuel.fakeapi.models.Product;
 import dev.donmanuel.fakeapi.network.ApiCallback;
 import dev.donmanuel.fakeapi.network.ApiClient;
 
+/**
+ * Main activity that displays a list of products
+ * Following the Single Responsibility Principle
+ */
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -34,28 +39,48 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        initViews();
+        setupRecyclerView();
+        fetchProducts();
+    }
 
+    private void initViews() {
+        recyclerView = findViewById(R.id.recyclerView);
+    }
+
+    private void setupRecyclerView() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        productAdapter = new ProductAdapter(new ArrayList<>(), this::navigateToProductDetail);
+        recyclerView.setAdapter(productAdapter);
+    }
+
+    private void fetchProducts() {
         ApiClient apiClient = ApiClient.getInstance();
 
-        apiClient.fetchProducts(new ApiCallback<>() {
+        apiClient.fetchProducts(new ApiCallback<List<Product>>() {
             @Override
             public void onSuccess(List<Product> products) {
-                runOnUiThread(() -> {
-                    productAdapter = new ProductAdapter(products, product -> {
-                        Intent intent = new Intent(MainActivity.this, ProductDetailActivity.class);
-                        intent.putExtra("productId", product.getId());
-                        startActivity(intent);
-                    });
-                    recyclerView.setAdapter(productAdapter);
-                });
+                runOnUiThread(() -> updateProductList(products));
             }
 
             @Override
             public void onError(Exception e) {
-                runOnUiThread(() -> Toast.makeText(MainActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                runOnUiThread(() -> showError(e.getMessage()));
             }
         });
+    }
+
+    private void updateProductList(List<Product> products) {
+        productAdapter.updateData(products);
+    }
+
+    private void navigateToProductDetail(Product product) {
+        Intent intent = new Intent(MainActivity.this, ProductDetailActivity.class);
+        intent.putExtra("productId", product.getId());
+        startActivity(intent);
+    }
+
+    private void showError(String message) {
+        Toast.makeText(MainActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
     }
 }

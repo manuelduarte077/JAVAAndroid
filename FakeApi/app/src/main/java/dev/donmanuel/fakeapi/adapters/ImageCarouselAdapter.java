@@ -6,19 +6,37 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dev.donmanuel.fakeapi.R;
+import dev.donmanuel.fakeapi.models.Image;
 
-public class ImageCarouselAdapter extends RecyclerView.Adapter<ImageCarouselAdapter.ImageViewHolder> {
-    private final List<String> images;
+/**
+ * ImageCarouselAdapter that extends AbstractAdapter
+ * Following the Single Responsibility Principle and Liskov Substitution Principle
+ */
+public class ImageCarouselAdapter extends AbstractAdapter<Image, ImageCarouselAdapter.ImageViewHolder> {
 
-    public ImageCarouselAdapter(List<String> images) {
-        this.images = images;
+    public ImageCarouselAdapter(List<Image> images) {
+        super(images);
+    }
+    
+    /**
+     * Constructor that converts string URLs to Image objects
+     */
+    public ImageCarouselAdapter(List<String> imageUrls, boolean convertFromUrls) {
+        super();
+        if (imageUrls != null && convertFromUrls) {
+            List<Image> images = new ArrayList<>();
+            for (int i = 0; i < imageUrls.size(); i++) {
+                images.add(new Image(i, imageUrls.get(i)));
+            }
+            this.items = images;
+        }
     }
 
     @NonNull
@@ -31,16 +49,13 @@ public class ImageCarouselAdapter extends RecyclerView.Adapter<ImageCarouselAdap
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        String imageUrl = images.get(position);
-        Picasso.get().load(imageUrl).into(holder.imageView);
+        Image image = getItem(position);
+        if (image != null && image.getUrl() != null) {
+            Picasso.get().load(image.getUrl()).into(holder.imageView);
+        }
     }
 
-    @Override
-    public int getItemCount() {
-        return images.size();
-    }
-
-    static class ImageViewHolder extends RecyclerView.ViewHolder {
+    static class ImageViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
         ImageView imageView;
 
         public ImageViewHolder(@NonNull View itemView) {
@@ -48,4 +63,4 @@ public class ImageCarouselAdapter extends RecyclerView.Adapter<ImageCarouselAdap
             imageView = itemView.findViewById(R.id.carouselImage);
         }
     }
-} 
+}

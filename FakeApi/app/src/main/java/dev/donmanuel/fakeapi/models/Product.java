@@ -2,7 +2,11 @@ package dev.donmanuel.fakeapi.models;
 
 import java.util.List;
 
-public class Product {
+/**
+ * Product model implementing BaseModel interface
+ * Following the Liskov Substitution Principle
+ */
+public class Product implements BaseModel {
     private int id;
     private String title;
     private int price;
@@ -11,6 +15,7 @@ public class Product {
     private List<String> images;
 
     // Getters y setters
+    @Override
     public int getId() {
         return id;
     }

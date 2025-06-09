@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
@@ -16,8 +15,11 @@ import java.util.List;
 import dev.donmanuel.fakeapi.R;
 import dev.donmanuel.fakeapi.models.Product;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
-    private final List<Product> products;
+/**
+ * ProductAdapter that extends AbstractAdapter
+ * Following the Single Responsibility Principle and Liskov Substitution Principle
+ */
+public class ProductAdapter extends AbstractAdapter<Product, ProductAdapter.ProductViewHolder> {
     private final OnProductClickListener listener;
 
     public interface OnProductClickListener {
@@ -26,7 +28,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     // Constructor del adaptador
     public ProductAdapter(List<Product> products, OnProductClickListener listener) {
-        this.products = products;
+        super(products);
         this.listener = listener;
     }
 
@@ -39,23 +41,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        Product product = products.get(position);
+        Product product = getItem(position);
+        if (product == null) return;
 
         holder.title.setText(product.getTitle());
         holder.price.setText("$" + product.getPrice());
         holder.category.setText(product.getCategory().getName());
-        Picasso.get().load(product.getImages().get(0)).into(holder.productImage);
+        
+        if (product.getImages() != null && !product.getImages().isEmpty()) {
+            Picasso.get().load(product.getImages().get(0)).into(holder.productImage);
+        }
 
-        holder.itemView.setOnClickListener(v -> listener.onProductClick(product));
-    }
-
-    @Override
-    public int getItemCount() {
-        return products.size();
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onProductClick(product);
+            }
+        });
     }
 
     // ViewHolder para el RecyclerView
-    static class ProductViewHolder extends RecyclerView.ViewHolder {
+    static class ProductViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
         TextView title, price, category;
         ImageView productImage;
 

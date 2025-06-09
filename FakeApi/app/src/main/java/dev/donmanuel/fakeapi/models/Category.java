@@ -1,11 +1,16 @@
 package dev.donmanuel.fakeapi.models;
 
-public class Category {
+/**
+ * Category model implementing BaseModel interface
+ * Following the Liskov Substitution Principle
+ */
+public class Category implements BaseModel {
     private int id;
     private String name;
     private String image;
 
     // Getters y setters
+    @Override
     public int getId() {
         return id;
     }
