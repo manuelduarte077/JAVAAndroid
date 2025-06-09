@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">NoteKeep</string>
+    <string name="no_notes_yet">No hay notas todavía</string>
+    <string name="add_new_note">Agregar nueva nota</string>
+    <string name="add_note">Añadir nota</string>
+    <string name="edit_note">Editar nota</string>
+    <string name="note_title">Título</string>
+    <string name="note_content">Contenido</string>
+    <string name="note_category">Categoría</string>
+    <string name="save_note">Guardar</string>
+    <string name="delete_note">Eliminar</string>
+    <string name="search_notes">Buscar notas</string>
+    <string name="category_work">Trabajo</string>
+    <string name="category_personal">Personal</string>
+    <string name="category_study">Estudio</string>
+    <string name="category_other">Otro</string>
+    <string name="note_saved">Nota guardada</string>
+    <string name="note_deleted">Nota eliminada</string>
+    <string name="error_empty_title">El título no puede estar vacío</string>
+    <string name="error_empty_category">La categoría no puede estar vacía</string>
+    <string name="all_notes">Todas</string>
+    <string name="sort">Ordenar</string>
+</resources>

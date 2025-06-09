@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "230651328026",
+    "project_id": "labsapp-161ec",
+    "storage_bucket": "labsapp-161ec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230651328026:android:76a210bbb4fe11901143a3",
+        "android_client_info": {
+          "package_name": "com.example.tapjackinglogin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBuFyEyepCax2BV-a8Km344AKXcrix9_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230651328026:android:db9872491cb99c761143a3",
+        "android_client_info": {
+          "package_name": "dev.donmanuel.androidfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBuFyEyepCax2BV-a8Km344AKXcrix9_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

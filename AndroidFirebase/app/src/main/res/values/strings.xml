@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AndroidFirebase</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password_text">Contraseña</string>
+    <string name="login_btn">Iniciar Sesión</string>
+    <string name="register_btn">Registrarse</string>
+    <string name="bienvenido">"Bienvenido, "</string>
+    <string name="password">Contraseña</string>
+    <string name="dont_have_account">¿No tienes una cuenta?</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="logo">Logo</string>
+</resources>

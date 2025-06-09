@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Rickandmorty</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_favorite">Favorites</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <!-- Rick and Morty Menu Items -->
+    <string name="menu_characters">Characters</string>
+    <string name="menu_locations">Locations</string>
+    <string name="menu_episodes">Episodes</string>
+    <string name="menu_favorites">Favorites</string>
+
+    <!-- Rick and Morty Content Descriptions -->
+    <string name="character_image">Character Image</string>
+    <string name="loading">Loading…</string>
+    <string name="error_loading_data">Error loading data</string>
+    <string name="retry">Retry</string>
+    <string name="no_favorites">No favorites yet. Click the heart icon on any item to add it to your favorites.</string>
+</resources>

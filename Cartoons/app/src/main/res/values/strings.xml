@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cartoons</string>
+    <string name="title_futurama">Futurama</string>
+    <string name="title_simpsons">Simpsons</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="favorites_empty_message">You don\'t have any favorites yet</string>
+    <string name="all_favorites">All</string>
+    <string name="simpsons_favorites">Simpsons</string>
+    <string name="futurama_favorites">Futurama</string>
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="remove_from_favorites">Remove from favorites</string>
+</resources>

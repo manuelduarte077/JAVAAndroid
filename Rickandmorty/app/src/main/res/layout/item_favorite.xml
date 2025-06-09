@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/favoriteImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/character_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_menu_camera" />
+
+        <TextView
+            android:id="@+id/favoriteName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/removeFavoriteButton"
+            app:layout_constraintStart_toEndOf="@+id/favoriteImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Rick Sanchez" />
+
+        <TextView
+            android:id="@+id/favoriteType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toStartOf="@+id/removeFavoriteButton"
+            app:layout_constraintStart_toEndOf="@+id/favoriteImage"
+            app:layout_constraintTop_toBottomOf="@+id/favoriteName"
+            tools:text="character" />
+
+        <TextView
+            android:id="@+id/favoriteDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/removeFavoriteButton"
+            app:layout_constraintStart_toEndOf="@+id/favoriteImage"
+            app:layout_constraintTop_toBottomOf="@+id/favoriteType"
+            tools:text="Status: Alive, Species: Human" />
+
+        <ImageView
+            android:id="@+id/removeFavoriteButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Remove from favorites"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

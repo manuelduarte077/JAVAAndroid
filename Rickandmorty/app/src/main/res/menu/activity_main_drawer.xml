@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Rick and Morty">
+        <menu>
+            <item
+                android:id="@+id/nav_characters"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/menu_characters" />
+            <item
+                android:id="@+id/nav_locations"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="@string/menu_locations" />
+            <item
+                android:id="@+id/nav_episodes"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_episodes" />
+            <item
+                android:id="@+id/nav_favorites"
+                android:icon="@android:drawable/btn_star_big_on"
+                android:title="@string/menu_favorites" />
+        </menu>
+    </item>
+</menu>

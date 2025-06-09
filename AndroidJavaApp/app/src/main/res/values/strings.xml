@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AndroidJavaApp</string>
+    <string name="click_me">Click Me</string>
+    <string name="loading">Loading...</string>
+    <string name="comments">Comments:</string>
+    <string name="comment_name">Comment Name</string>
+    <string name="email">Email</string>
+    <string name="comment_body">Comment body</string>
+    <string name="post_title">Post Title</string>
+    <string name="post_body_content_goes_here">Post body content goes here...</string>
+</resources>

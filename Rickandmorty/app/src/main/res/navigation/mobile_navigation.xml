@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_characters">
+
+    <!-- Rick and Morty Fragments -->
+    <fragment
+        android:id="@+id/nav_characters"
+        android:name="dev.donmanuel.rickandmorty.ui.characters.CharactersFragment"
+        android:label="@string/menu_characters"
+        tools:layout="@layout/fragment_characters" />
+
+    <fragment
+        android:id="@+id/nav_locations"
+        android:name="dev.donmanuel.rickandmorty.ui.locations.LocationsFragment"
+        android:label="@string/menu_locations"
+        tools:layout="@layout/fragment_locations" />
+
+    <fragment
+        android:id="@+id/nav_episodes"
+        android:name="dev.donmanuel.rickandmorty.ui.episodes.EpisodesFragment"
+        android:label="@string/menu_episodes"
+        tools:layout="@layout/fragment_episodes" />
+
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="dev.donmanuel.rickandmorty.ui.favorites.FavoritesFragment"
+        android:label="@string/menu_favorites"
+        tools:layout="@layout/fragment_favorites" />
+</navigation>
